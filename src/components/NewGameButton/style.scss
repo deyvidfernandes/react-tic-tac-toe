@@ -1,0 +1,8 @@
+@use "../../global.scss";
+
+button {
+   background-color: global.$oColor;
+   font-size: 20px;
+   font-weight: 700;
+   padding: 12px;
+}

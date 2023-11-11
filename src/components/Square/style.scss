@@ -1,0 +1,37 @@
+@use "../../global.scss";
+
+td {
+   width: global.$squareSize;
+   height: global.$squareSize;
+   vertical-align: middle;
+
+   text-align: center;
+   font-size: 72px;
+
+   border: global.$whiteColor solid 2px;
+   cursor: default;
+
+   &.clickable {
+      cursor: pointer;
+   }
+
+   &:nth-child(1) {
+      border-left: none;
+   }
+
+   &:last-child {
+      border-right: none;
+   }
+}
+
+.red {
+   color: global.$xColor
+}
+
+.blue {
+   color: global.$oColor
+}
+
+svg {
+   transform: translateY(3px);
+}

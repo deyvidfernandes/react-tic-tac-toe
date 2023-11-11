@@ -1,0 +1,194 @@
+@use "sass:math";
+@use "../../global.scss";
+
+$boardDiagonalSize: calc(math.sqrt(2) * global.$boardSize);
+
+#endGameLineWrapper {
+   position: relative;
+
+   #endGameLine {
+      content: "";
+      position: absolute;
+      border: global.$endGameLineStroke solid;
+      border-radius: global.$endGameLineStroke;
+      transform-origin: 0% 0%;
+      &.red {
+         border-color: global.$xColor;
+         background-color: global.$xColor;
+         box-shadow: 0px 0px 5px global.$xColor;
+      }
+      
+      &.blue {
+         border-color: global.$oColor;
+         background-color: global.$oColor;
+         box-shadow: 0px 0px 5px global.$oColor;
+      }
+   }
+}
+
+.diagonalCross {
+   left: global.$endGameLineStroke;
+   top: -2.5px;
+   & > #endGameLine {
+      width: $boardDiagonalSize;
+      transform: rotate(45deg);
+      animation: diagonalCrossAnimation 2s ease-in-out running;
+      @keyframes diagonalCrossAnimation {
+         from {
+            width: 0px
+         }  
+         to { 
+            width: $boardDiagonalSize;
+         }
+      }
+   }
+}
+.diagonalBottomCross {
+   left: - global.$endGameLineStroke;
+   top: global.$boardSize - 2.5px;
+
+   & > #endGameLine {
+      width: $boardDiagonalSize;
+      transform: rotate(-45deg);
+      animation: diagonalBottomCrossAnimation 2s ease-in-out running;
+      @keyframes diagonalBottomCrossAnimation {
+         from {
+            width: 0px
+         }  
+         to { 
+            width: $boardDiagonalSize;
+         }
+      }
+   }
+}
+
+.diagonalLeftCross {
+   top: 2px;
+   left: global.$boardSize + 5px;
+
+   & > #endGameLine {
+      width: $boardDiagonalSize;
+      transform: rotate(135deg);
+      animation: diagonalLeftCrossAnimation 2s ease-in-out running;
+      @keyframes diagonalLeftCrossAnimation {
+         from {
+            width: 0px
+         }  
+         to { 
+            width: $boardDiagonalSize;
+         }
+      }
+   }
+}
+.diagonalLeftBottomCross {
+   left: global.$boardSize - 5px;
+   top: global.$boardSize + 2px;
+
+   & > #endGameLine {
+      width: $boardDiagonalSize;
+      transform: rotate(-135deg);
+      animation: diagonalLeftBottomCrossAnimation 2s ease-in-out running;
+      @keyframes diagonalLeftBottomCrossAnimation {
+         from {
+            width: 0px
+         }  
+         to { 
+            width: $boardDiagonalSize;
+         }
+      }
+   }
+}
+
+.horizontalCross {
+   bottom: global.$endGameLineStroke;
+   & > #endGameLine {
+      width: global.$boardSize;
+      animation: horizontalCrossAnimation 2s ease-in-out running;
+      @keyframes horizontalCrossAnimation {
+         from {
+            width: 0px
+         }  
+         to { 
+            width: global.$boardSize;
+         }
+      }
+   }
+}
+
+.horizontalLeftCross {
+   bottom: global.$endGameLineStroke;
+   transform: scaleX(-1);
+   & > #endGameLine {
+      width: global.$boardSize;
+      animation: horizontalCrossLeftAnimation 2s ease-in-out running;
+      @keyframes horizontalCrossLeftAnimation {
+         from {
+            width: 0px
+         }  
+         to { 
+            width: global.$boardSize;
+         }
+      }
+   }
+}
+
+.verticalCross {
+   right: global.$endGameLineStroke;
+
+   & > #endGameLine {
+      height: global.$boardSize;
+      animation: verticalCrossAnimation 2s ease-in-out running;
+      @keyframes verticalCrossAnimation {
+         from {
+            height: 0px
+         }  
+         to { 
+            height: global.$boardSize;
+         }
+      }
+   }
+}
+
+.verticalBottomCross {
+   right: global.$endGameLineStroke;
+   transform: scaleY(-1);
+   top: global.$boardSize;
+
+   & > #endGameLine {
+      height: global.$boardSize;
+      animation: verticalBottomCrossAnimation 2s ease-in-out running;
+      @keyframes verticalBottomCrossAnimation {
+         from {
+            height: 0px
+         }  
+         to { 
+            height: global.$boardSize; 
+         }
+      }
+   }
+}
+
+@mixin offset($property, $square) {
+   #{$property}: calc(global.$squareSize * $square) + calc(global.$squareSize / 2);
+}
+ 
+
+.offsetX0 {
+   @include offset(left, 0)
+}
+.offsetX1 {
+   @include offset(left, 1)
+}
+.offsetX2 {
+   @include offset(left, 2)
+}
+
+.offsetY0 {
+   @include offset(top, 0)
+}
+.offsetY1 {
+   @include offset(top, 1)
+}
+.offsetY2 {
+   @include offset(top, 2)
+}
