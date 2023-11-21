@@ -25,13 +25,34 @@ td {
 }
 
 .red {
-   color: global.$xColor
+   color: global.$xColor;
+   animation: show  0.2s ease-in-out running;
+   
+   @keyframes show {
+      from {
+         opacity: 0
+      }  
+      to { 
+         opacity: 1;
+      }
+   }
 }
 
 .blue {
-   color: global.$oColor
+   color: global.$oColor;
+   animation: show  0.2s ease-in-out running;
+   
+   @keyframes show {
+      from {
+         opacity: 0
+      }  
+      to { 
+         opacity: 1;
+      }
+   }
 }
 
 svg {
    transform: translateY(3px);
+   
 }

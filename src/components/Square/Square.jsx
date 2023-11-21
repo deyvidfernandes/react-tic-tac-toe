@@ -1,27 +1,25 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useContext } from "react";
+
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faX } from '@fortawesome/free-solid-svg-icons'
 import { faCircle } from '@fortawesome/free-regular-svg-icons'
+
 import "./style.scss"
+import { useGameContext } from "../../logic/GameContext.tsx";
 
 
-const Square = (key, player, isSquareEmpty, onclick) => {
-   
+const Square = ({x, y}) => {
+   const {gameState, handleSquareClick} = useGameContext()
+   const thisData = gameState.squares[y][x]
 
-   const cursorType = isSquareEmpty ? "clickable" : undefined
+   const isSquareEmpty = !thisData.player
+   const cursorType = isSquareEmpty && gameState.isGameRunning ? "clickable" : undefined
    return (
-      <td key={key} onClick={onclick} className={cursorType}>
-         {player === 'X' && <FontAwesomeIcon icon={faX} className="red" />}
-         {player === 'O' && <FontAwesomeIcon icon={faCircle} className="blue"/>}
+      <td onClick={() => handleSquareClick(x, y)} className={cursorType}>
+         {thisData.player === 'X' && <FontAwesomeIcon icon={faX} className="red" />}
+         {thisData.player === 'O' && <FontAwesomeIcon icon={faCircle} className="blue"/>}
       </td>
    )
-}
-
-Square.propTypes = {
-   key: PropTypes.string,
-   player: PropTypes.string,
-   player: PropTypes.func,
 }
 
 export default Square

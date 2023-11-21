@@ -2,7 +2,7 @@
 
 const useEndGameLine = (winCase: string, offset: number, isInverse: boolean) => {
    let offsetClass : string | null = null;
-   const winCaseAndInverse = winCase + "-" + (isInverse ? "inverse" : "normal")
+   const winCaseAndInverse = winCase + "-" + (isInverse ? "INVERSE" : "NORMAL")
    let crossAnimationClass: string | null = null;
 
    if (winCase === "row") {
@@ -12,28 +12,28 @@ const useEndGameLine = (winCase: string, offset: number, isInverse: boolean) => 
    } 
 
    switch(winCaseAndInverse) {
-      case "col-normal":
+      case "COL-NORMAL":
          crossAnimationClass = "verticalCross"
          break;
-      case "col-inverse":
+      case "COL-INVERSE":
          crossAnimationClass = "verticalBottomCross"
          break;
-      case "row-normal":
+      case "ROW-NORMAL":
          crossAnimationClass = "horizontalCross"
          break;
-      case "row-inverse":
+      case "ROW-INVERSE":
          crossAnimationClass = "horizontalLeftCross"
          break;
-      case "diag-normal":
+      case "DIAGONAL-NORMAL":
          crossAnimationClass = "diagonalCross"
          break;
-      case "diag-inverse":
+      case "DIAGONAL-INVERSE":
          crossAnimationClass = "diagonalLeftBottomCross"
          break;
-      case "rdiag-normal":
+      case "RIGHT_DIAGONAL-NORMAL":
          crossAnimationClass = "diagonalBottomCross" // XXX
          break;
-      case "rdiag-inverse":
+      case "RIGHT_DIAGONAL-INVERSE":
          crossAnimationClass = "diagonalLeftCross" // XXX
          break;
    }

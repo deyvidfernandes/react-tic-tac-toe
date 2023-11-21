@@ -1,8 +1,21 @@
 @use "../../global.scss";
 
-button {
-   background-color: global.$oColor;
+.newGameButton {
    font-size: 20px;
    font-weight: 700;
    padding: 12px;
+   border-radius: 10px;
+   cursor: pointer;
+
+   animation: show  0.2s ease-in-out running;
+
+   &.x {
+      background-color: global.$xColor
+   }
+   &.o {
+      background-color: global.$oColor
+   }
+   &.none {
+      background-color: white;
+   }
 }

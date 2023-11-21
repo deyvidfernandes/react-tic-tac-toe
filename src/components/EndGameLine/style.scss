@@ -3,6 +3,49 @@
 
 $boardDiagonalSize: calc(math.sqrt(2) * global.$boardSize);
 
+@keyframes diagonal {
+   0% {
+      width: 0px;
+      opacity: 0;
+   } 20% {
+      opacity: 1;
+   }
+   100% { 
+      width: $boardDiagonalSize;
+   }
+}
+@keyframes horizontal {
+   0% {
+      width: 0px;
+      opacity: 0;
+   } 20% {
+      opacity: 1;
+   }
+   100% { 
+      width: global.$boardSize;
+   }
+}
+@keyframes vertical {
+   0% {
+      height: 0px;
+      opacity: 0;
+   } 20% {
+      opacity: 1;
+   } 100% { 
+      height: global.$boardSize;
+   }
+}
+
+@mixin animate($type) {
+   @if $type == "diagonal" {
+      animation: diagonal 1.5s ease-in-out running;
+   } @else if $type == "horizontal" {
+      animation: horizontal 1.5s ease-in-out running;
+   } @else if $type == "vertical" {
+      animation: vertical 1.5s ease-in-out running;
+   }
+}
+
 #endGameLineWrapper {
    position: relative;
 
@@ -32,15 +75,7 @@ $boardDiagonalSize: calc(math.sqrt(2) * global.$boardSize);
    & > #endGameLine {
       width: $boardDiagonalSize;
       transform: rotate(45deg);
-      animation: diagonalCrossAnimation 2s ease-in-out running;
-      @keyframes diagonalCrossAnimation {
-         from {
-            width: 0px
-         }  
-         to { 
-            width: $boardDiagonalSize;
-         }
-      }
+      @include animate("diagonal");
    }
 }
 .diagonalBottomCross {
@@ -50,15 +85,7 @@ $boardDiagonalSize: calc(math.sqrt(2) * global.$boardSize);
    & > #endGameLine {
       width: $boardDiagonalSize;
       transform: rotate(-45deg);
-      animation: diagonalBottomCrossAnimation 2s ease-in-out running;
-      @keyframes diagonalBottomCrossAnimation {
-         from {
-            width: 0px
-         }  
-         to { 
-            width: $boardDiagonalSize;
-         }
-      }
+      @include animate("diagonal");
    }
 }
 
@@ -69,15 +96,7 @@ $boardDiagonalSize: calc(math.sqrt(2) * global.$boardSize);
    & > #endGameLine {
       width: $boardDiagonalSize;
       transform: rotate(135deg);
-      animation: diagonalLeftCrossAnimation 2s ease-in-out running;
-      @keyframes diagonalLeftCrossAnimation {
-         from {
-            width: 0px
-         }  
-         to { 
-            width: $boardDiagonalSize;
-         }
-      }
+      @include animate("diagonal");
    }
 }
 .diagonalLeftBottomCross {
@@ -87,48 +106,24 @@ $boardDiagonalSize: calc(math.sqrt(2) * global.$boardSize);
    & > #endGameLine {
       width: $boardDiagonalSize;
       transform: rotate(-135deg);
-      animation: diagonalLeftBottomCrossAnimation 2s ease-in-out running;
-      @keyframes diagonalLeftBottomCrossAnimation {
-         from {
-            width: 0px
-         }  
-         to { 
-            width: $boardDiagonalSize;
-         }
-      }
+      @include animate("diagonal");
    }
 }
 
 .horizontalCross {
-   bottom: global.$endGameLineStroke;
+   // bottom: global.$endGameLineStroke;
    & > #endGameLine {
       width: global.$boardSize;
-      animation: horizontalCrossAnimation 2s ease-in-out running;
-      @keyframes horizontalCrossAnimation {
-         from {
-            width: 0px
-         }  
-         to { 
-            width: global.$boardSize;
-         }
-      }
+      @include animate("horizontal");
    }
 }
 
 .horizontalLeftCross {
-   bottom: global.$endGameLineStroke;
+   // bottom: global.$endGameLineStroke;
    transform: scaleX(-1);
    & > #endGameLine {
       width: global.$boardSize;
-      animation: horizontalCrossLeftAnimation 2s ease-in-out running;
-      @keyframes horizontalCrossLeftAnimation {
-         from {
-            width: 0px
-         }  
-         to { 
-            width: global.$boardSize;
-         }
-      }
+      @include animate("horizontal");
    }
 }
 
@@ -137,15 +132,7 @@ $boardDiagonalSize: calc(math.sqrt(2) * global.$boardSize);
 
    & > #endGameLine {
       height: global.$boardSize;
-      animation: verticalCrossAnimation 2s ease-in-out running;
-      @keyframes verticalCrossAnimation {
-         from {
-            height: 0px
-         }  
-         to { 
-            height: global.$boardSize;
-         }
-      }
+      @include animate("vertical");
    }
 }
 
@@ -156,15 +143,7 @@ $boardDiagonalSize: calc(math.sqrt(2) * global.$boardSize);
 
    & > #endGameLine {
       height: global.$boardSize;
-      animation: verticalBottomCrossAnimation 2s ease-in-out running;
-      @keyframes verticalBottomCrossAnimation {
-         from {
-            height: 0px
-         }  
-         to { 
-            height: global.$boardSize; 
-         }
-      }
+      @include animate("vertical");
    }
 }
 

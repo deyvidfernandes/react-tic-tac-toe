@@ -20,7 +20,6 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   height: 610px;
   
   padding: 32px;
@@ -30,12 +29,16 @@ main {
   color: global.$whiteColor;
   font-family: 'Roboto Slab', serif;
   font-size: 32px;
+  margin-bottom: 32px;
 }
 
-.leaderboard {
+.scoreboard {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 32px;
+
   gap: 32px;
+
   div {
     display: flex;
     gap: 8px;

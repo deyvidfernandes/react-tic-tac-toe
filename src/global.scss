@@ -8,3 +8,12 @@ $whiteColor: hsl(0, 0%, 95%);
 
 $xColor: hsl(0, 100%, 60%);
 $oColor: hsl(250, 100%, 60%);
+
+@keyframes show {
+   from {
+      opacity: 0
+   }  
+   to { 
+      opacity: 1;
+   }
+}
