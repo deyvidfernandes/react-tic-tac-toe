@@ -1,0 +1,15 @@
+@use "../../global.scss";
+
+#turnDisplay {
+   font-weight: 600;
+   padding-top: 12px;
+   font-size: 20px;
+}
+
+.X {
+   color: global.$xColor;
+}
+
+.O {
+   color: global.$oColor;
+}
