@@ -39,11 +39,7 @@ $boardDiagonalSize: calc(math.sqrt(2) * global.$boardSize);
 
 @mixin animate($type) {
    @if $type == "diagonal" {
-      animation-name: diagonal, burn;
-      animation-duration: 1.5s, 0.40s;
-      animation-timing-function: ease-in-out, linear;
-      animation-play-state: running, running;
-      animation-iteration-count: 1, infinite;
+      animation: diagonal 1.5s ease-in-out running;
    } @else if $type == "horizontal" {
       animation: horizontal 1.5s ease-in-out running;
    } @else if $type == "vertical" {

@@ -17,13 +17,3 @@ $oColor: hsl(250, 100%, 60%);
       opacity: 1;
    }
 }
-
-@keyframes burn {
-   0% {
-      filter: saturate(100%) brightness(100%);
-   } 50% {
-      filter: saturate(160%) brightness(110%) hue-rotate(10deg);
-   } 100% { 
-      filter: saturate(100%) brightness(100%);
-   }
-}
