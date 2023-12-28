@@ -22,11 +22,12 @@ const NewGameButton = () => {
       } else if (byOnePoint && isScoreboardTied) {
          message = "Quem fizer vence!"
       } else if  (byOnePoint && !isScoreboardTied && winnerHasHigherWinCount) {
-         message = `Se o ${gameState.endGameData.winner} fizer, acabou!`
+         
+         message = gameState.endGameData.winner == "none" ? 'Por um ponto!' : `Se o ${gameState.endGameData.winner} fizer, acabou!`
       }
       else {
          message = "Continuar"
-      } 
+      }
       return (
          <button onClick={newGame} className={"newGameButton " + gameState.endGameData.winner.toLowerCase()}>{message}</button>
       )
