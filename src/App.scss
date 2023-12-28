@@ -2,41 +2,39 @@
 @use "./global.scss";
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap');
 
-#root {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100vw;
-  font-family: 'Roboto Slab', serif;
-
-}
 
 body {
   background-color: global.$backgroundColor;
 }
 
-main {
-  width: 500px;
+#root {
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 610px;
-  
-  padding: 32px;
+  gap: 32px;
+  padding-top: 32px;
+
+  font-family: 'Roboto Slab', serif;
+
 }
 
-.gameTitle {
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+#gameTitle {
   color: global.$whiteColor;
-  font-family: 'Roboto Slab', serif;
   font-size: 32px;
-  margin-bottom: 32px;
 }
 
 .scoreboard {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 32px;
-
   gap: 32px;
 
   div {
