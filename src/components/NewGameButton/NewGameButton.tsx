@@ -6,6 +6,7 @@ import React from "react"
 const NewGameButton = () => {
    const {gameState, newGame} = useGameContext()
    if (!gameState.isGameRunning) {
+      
       const higherWinCount = Math.max(gameState.oWinCount, gameState.xWinCount)
       const winnerWinCount = gameState.endGameData.winner == "X" ? gameState.xWinCount : gameState.oWinCount
       const isScoreboardTied = gameState.xWinCount === gameState.oWinCount

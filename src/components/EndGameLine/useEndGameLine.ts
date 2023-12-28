@@ -5,9 +5,9 @@ const useEndGameLine = (winCase: string, offset: number, isInverse: boolean) => 
    const winCaseAndInverse = winCase + "-" + (isInverse ? "INVERSE" : "NORMAL")
    let crossAnimationClass: string | null = null;
 
-   if (winCase === "row") {
+   if (winCase === "ROW") {
       offsetClass = "offsetY" +  offset
-   } else if (winCase === "col") {
+   } else if (winCase === "COL") {
       offsetClass = "offsetX" +  offset
    } 
 

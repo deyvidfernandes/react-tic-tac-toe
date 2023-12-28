@@ -1,9 +1,8 @@
-import Tile from "../Square/Square.jsx"
-import "./style.scss"
-import EndGameLine from "../EndGameLine/EndGameLine.jsx"
-import { useGameContext } from "../../logic/GameContext.js"
 import React from "react"
-import { EndGameData } from "../../logic/types.js"
+import { useGameContext } from "../../logic/GameContext"
+import Tile from "../Square/Square.jsx"
+import EndGameLine from "../EndGameLine/EndGameLine.jsx"
+import "./style.scss"
 
 const Board = () => {
   const {gameState} = useGameContext()
@@ -19,10 +18,11 @@ const Board = () => {
     )
   })
   
-  const isGameInDraw = (gameState.endGameData as EndGameData)?.winner != "none"
+  const isGameInDraw = (gameState.endGameData)?.winner != "none"
+
   return (
     <div id="tableWrapper">
-      {!gameState.isGameRunning && isGameInDraw && EndGameLine()}
+      {!gameState.isGameRunning && isGameInDraw && <EndGameLine/>}
       <table>
         <tbody>
           {renderedBoardTiles}

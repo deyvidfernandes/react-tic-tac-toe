@@ -14,6 +14,7 @@ const Square = ({x, y}) => {
 
    const isSquareEmpty = !thisData.player
    const cursorType = isSquareEmpty && gameState.isGameRunning ? "clickable" : undefined
+   
    return (
       <td onClick={() => handleSquareClick(x, y)} className={cursorType}>
          {thisData.player === 'X' && <FontAwesomeIcon icon={faX} className="red" />}

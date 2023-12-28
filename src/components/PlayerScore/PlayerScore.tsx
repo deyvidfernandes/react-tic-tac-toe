@@ -1,10 +1,10 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useGameContext } from "../../logic/GameContext"
 import React from "react"
+import { useGameContext } from "../../logic/GameContext"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircle } from "@fortawesome/free-regular-svg-icons"
 import { faX } from "@fortawesome/free-solid-svg-icons"
 
-export const PlayerScore = ({player}) => {
+const PlayerScore = ({player}) => {
    const {gameState} = useGameContext()
    const isX = player === "X";
 
@@ -16,7 +16,4 @@ export const PlayerScore = ({player}) => {
    )
 }
 
-// <div className='x'>
-// <FontAwesomeIcon icon={faX}/>
-// <span>{gameState.xWinCount}</span>
-// </div>
+export default PlayerScore

@@ -7,22 +7,19 @@ export const useTicTacToeLogic = () => {
    const takeSquare = (x : number, y : number) => {
       const nextGameState = calculateNextGameState(gameState, {type: 'play_turn', x, y})
 
-      const {
-         case: winCase, 
-         squares: winSquares,
-         offset
-      } = detectWin(nextGameState.squares, gameState.turn, x, y)
+      const winData = detectWin(nextGameState.squares, gameState.turn, x, y)
+
+      const hasDraw = nextGameState.oTurnCount + nextGameState.xTurnCount == 9
       
-      const isGameInDraw = nextGameState.oTurnCount + nextGameState.xTurnCount == 9
-      
-      if (winSquares) {
+      if (winData) {
          dispatchGameState({
             type: "end_game_win", 
-            isInverse: winSquares[0] > winSquares[2],
-            offset: offset,
-            winCase: winCase,
+            isInverse: winData.squares![0] > winData.squares![2],
+            offset: winData.offset,
+            winCase: winData.case,
+            winSquares: winData.squares!
          })
-      } else if (isGameInDraw) {
+      } else if (hasDraw) {
          dispatchGameState({type: "end_game_draw"})
       }
       dispatchGameState({type: 'play_turn', x, y})

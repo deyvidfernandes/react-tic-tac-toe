@@ -1,4 +1,5 @@
 import { cloneMatrix } from "../util"
+import { Player } from "./enums"
 import { GameState, Square } from "./types"
 
 export const INITIAL_SQUARE_MATRIX: Square[][] = [
@@ -13,7 +14,7 @@ export const TIC_TAC_TOE_INITIAL_STATE : GameState = {
    oWinCount: 0,
    xTurnCount: 0,
    oTurnCount: 0,
-   turn: "X",
+   turn: Player.O,
    isGameRunning: true,
    endGameData: {
       winner: "none",

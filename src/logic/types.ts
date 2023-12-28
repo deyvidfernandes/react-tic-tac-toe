@@ -1,14 +1,18 @@
 import { Player, WinCase } from "./enums";
 
-export type Square = { player: String | undefined, turn: number | undefined }
+export interface Square { 
+      player: String | undefined, 
+      turn: number | undefined
+}
 
-export type EndGameData = {
-      isInverse?: boolean;
-      offset?: number,
-      winCase?: WinCase,
+export interface EndGameData {
+      isInverse?: boolean
+      offset?: number
+      winCase?: WinCase
+      winSquares?: number[]
       winner: Player | "none"
 }
-export type GameState = {
+export interface GameState {
    squares: Square[][],
    xWinCount: number,
    oWinCount: number,

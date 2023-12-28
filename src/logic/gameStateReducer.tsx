@@ -33,6 +33,7 @@ export const reducer = (state = TIC_TAC_TOE_INITIAL_STATE, action): GameState =>
                offset: action.offset,
                winCase: action.winCase,
                winner: state.turn,
+               winSquares: action.winSquares
             }
          }
       case 'end_game_draw':

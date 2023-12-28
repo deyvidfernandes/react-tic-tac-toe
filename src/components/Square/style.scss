@@ -52,6 +52,10 @@ td {
    }
 }
 
+.burnIcon {
+   animation: burn 0.4s linear running infinite;
+}
+
 svg {
    transform: translateY(3px);
    
